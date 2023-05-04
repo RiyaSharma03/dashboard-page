@@ -14,7 +14,7 @@ module.exports = {
         'sm': {'min': '576px', 'max': '767px'},
         'md': {'min': '767px', 'max': '1280px'},
         'lg': {'min': '1280px', 'max': '1440px'},
-        // 'xl': {'min': '120px'},
+        'xl': {'min': '1280px','max':'2700px'},
 
       },
     },

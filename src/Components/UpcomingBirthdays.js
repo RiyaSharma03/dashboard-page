@@ -60,7 +60,7 @@ const UpcomingBirthdays = () => {
   ];
 
   return (
-    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full">
+    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full ">
       <div className="bg-[#fff] rounded-lg shadow-lg shadow-slate-500/50 p-4">
         <div className=" leading-5 text-[#475f7b] font-normal text-xl tracking-wider capitalize ">
           Upcoming Birthdays

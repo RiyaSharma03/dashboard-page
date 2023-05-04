@@ -15,7 +15,7 @@ function App() {
         <div className=" minimum:hidden burger:block ">
           <Sidebar />
         </div>
-        <div className="flex flex-wrap h-screen overflow-scroll">
+        <div className="flex flex-wrap h-screen overflow-scroll xl:w-full">
           <MyTeam />
           <UpcomingHolidays />
           <AllocatedSeats />
