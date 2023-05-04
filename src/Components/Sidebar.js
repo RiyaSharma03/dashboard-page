@@ -120,8 +120,8 @@ function Sidebar() {
                   : logoants
               }
               alt="no logo"
-              className={` w-36 h-8 ${open ? "w-8 h-8" : ""}`}
-            ></img>
+              className={` w-36 h-8 ${!open ? "w-8 " : ""}`}
+           />
             <button
               className="cursor-pointer text-[#40566F] burger:hidden "
               onClick={() => {
