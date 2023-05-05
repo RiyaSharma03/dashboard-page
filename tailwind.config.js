@@ -11,6 +11,7 @@ module.exports = {
         'cardsm':{'min': '320px', 'max': '767px'},
         'cardmd':{'min': '767px', 'max': '1402px'},
         'splitcard':{'min': '767px', 'max': '1000px'},
+        'sidebarCard':{'min': '575px', 'max': '2700px'},
         'xs': {'min': '320px', 'max': '576px'},
         'sm': {'min': '576px', 'max': '767px'},
         'md': {'min': '767px', 'max': '1280px'},

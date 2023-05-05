@@ -44,10 +44,10 @@ function Sidebar() {
   const [open, setOpen] = useState(true);
   const [onHover, setOnHover] = useState(false);
   const [selectedItem, setSelectedItem] = useState(-1);
- 
   const [isCollapsed, setIsCollapsed] = useState(false);
-
+  console.log("open is ",open)
   const handleToggleCollapse = () => {
+    console.log(isCollapsed," is collapsed ",open," open")
     setIsCollapsed(!isCollapsed);
     setOpen(true);
   };
@@ -99,7 +99,7 @@ function Sidebar() {
         </button>
       </div>
       <div
-        className={`flex gap-1 border-r-2 p-2 h-screen overflow-y-scroll burger:w-screen  scrollbar-hidden z-10 ${
+        className={`flex gap-1 border-r-2 p-2 h-screen overflow-y-scroll burger:w-screen sidebarCard:block scrollbar-hidden z-10 ${
           onHover ? "absolute" : ""
         } burger:absolute top-0 bg-[#f2f4f4] ${
           isCollapsed ? "hidden" : "block"
@@ -112,7 +112,7 @@ function Sidebar() {
             open ? "w-64" : "w-16"
           }  text-gray-100 p-2 `}
         >
-          <div className=" flex justify-between items-center burger:items-center burger:w-screen">
+          <div className=" flex justify-between items-center burger:items-center burger:w-screen ">
             <img
               src={
                 open
