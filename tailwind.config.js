@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'minimum': {'min': '575px', 'max': '1200px'},
+        'minimum': {'min': '575px', 'max': '1280px'},
         'burger': {'min': '320px', 'max': '575px'},
         'cardsm':{'min': '320px', 'max': '767px'},
-        'cardmd':{'min': '767px', 'max': '1280px'},
+        'cardmd':{'min': '767px', 'max': '1402px'},
+        'splitcard':{'min': '767px', 'max': '1000px'},
         'xs': {'min': '320px', 'max': '576px'},
         'sm': {'min': '576px', 'max': '767px'},
         'md': {'min': '767px', 'max': '1280px'},

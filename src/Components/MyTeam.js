@@ -1,12 +1,12 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-
+import '../styles.css';
 const MyTeam = () => {
   
   return (
-    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full ">
-      <div className=" rounded-lg bg-[#fff] shadow-lg shadow-slate-500/50">
-        <div className=" px-4 pt-4 leading-5 text-[#475f7b] font-normal text-xl tracking-wider capitalize">
+    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full">
+      <div className=" rounded-lg bg-[#fff] shadow-lg shadow-slate-500/50 ">
+        <div className=" p-4 leading-5 my-custom-class text-[#475f7b] font-normal  tracking-wider capitalize">
           My Team
         </div>
         <Scrollbars style={{ height: 400 }}>

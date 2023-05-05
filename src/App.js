@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useState } from "react";
+import React from "react";
 import MyTeam from "./Components/MyTeam";
 import UpcomingHolidays from "./Components/UpcomingHolidays";
 import AllocatedSeats from "./Components/AllocatedSeats";
@@ -12,10 +12,10 @@ function App() {
   return (
     <>
       <div className=" flex flex-row  bg-[#f2f4f4] ">
-        <div className=" minimum:hidden burger:block ">
+        <div className=" burger:block ">
           <Sidebar />
         </div>
-        <div className="flex flex-wrap h-screen overflow-scroll xl:w-full">
+        <div className="flex flex-wrap h-screen overflow-scroll xl:w-full ">
           <MyTeam />
           <UpcomingHolidays />
           <AllocatedSeats />

@@ -39,12 +39,12 @@ import circle2 from "../Assests/circle2.png";
 import { AiOutlineClose } from "react-icons/ai";
 function Sidebar() {
   const [isHovering, setIsHovering] = useState(false);
-  const handleHover = (i) => setIsHovering(true);
+  const handleHover = () => setIsHovering(true);
   const handleLeave = () => setIsHovering(false);
   const [open, setOpen] = useState(true);
   const [onHover, setOnHover] = useState(false);
   const [selectedItem, setSelectedItem] = useState(-1);
-  // console.log(open)
+ 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleToggleCollapse = () => {
@@ -90,7 +90,7 @@ function Sidebar() {
   ];
   return (
     <>
-      <div className="burger:block flex w-full  flex-row justify-between hidden ">
+      <div className="burger:block w-full  flex-row justify-between hidden ">
         <button
           className="text-[#40566F] m-2 focus:outline-none burger:block"
           onClick={handleToggleCollapse}
@@ -99,11 +99,11 @@ function Sidebar() {
         </button>
       </div>
       <div
-        className={`flex gap-1 border-r-2 p-2 h-screen overflow-y-scroll burger:w-screen burger:justify-stretch scrollbar-hidden z-10 ${
+        className={`flex gap-1 border-r-2 p-2 h-screen overflow-y-scroll burger:w-screen  scrollbar-hidden z-10 ${
           onHover ? "absolute" : ""
         } burger:absolute top-0 bg-[#f2f4f4] ${
           isCollapsed ? "hidden" : "block"
-        }`}
+        } `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -120,10 +120,10 @@ function Sidebar() {
                   : logoants
               }
               alt="no logo"
-              className={` w-36 h-8 ${!open ? "w-8 " : ""}`}
-           />
+              className={`w-36 h-8 ${!open ? "w-8 " : ""}`}
+            />
             <button
-              className="cursor-pointer text-[#40566F] burger:hidden "
+              className={`cursor-pointer text-[#40566F] burger:hidden  `}
               onClick={() => {
                 setOpen(!open);
                 setOnHover(true);

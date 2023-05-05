@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-
+import '../styles.css';
 const MySupportTickets = () => {
   const nameValuePairs = [
     {
@@ -15,9 +15,9 @@ const MySupportTickets = () => {
     },
   ];
   return (
-    <div className="p-4 w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full ">
-      <div className=" bg-[#fff]  rounded-lg shadow-lg shadow-slate-500/50">
-        <div className="p-4  leading-5 text-[#475f7b] font-normal text-xl tracking-wider capitalize">
+    <div className="p-4 w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full">
+      <div className=" bg-[#fff]  rounded-lg shadow-lg shadow-slate-500/50 ">
+        <div className=" leading-5 text-[#475f7b] font-normal my-custom-class tracking-wider capitalize p-4">
           My Support Tickets
         </div>
         <Scrollbars style={{ height: 435 }}>
