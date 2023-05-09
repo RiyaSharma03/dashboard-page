@@ -7,7 +7,7 @@ import MyProjects from "./Components/MyProjects";
 import MySupportTickets from "./Components/MySupportTickets";
 import UpcomingBirthdays from "./Components/UpcomingBirthdays";
 import Sidebar from "./Components/Sidebar";
-
+import Bonus from "./Components/Bonus"
 function App() {
   return (
     <>
@@ -16,12 +16,13 @@ function App() {
           <Sidebar />
         </div>
         <div className="flex flex-wrap h-screen overflow-scroll xl:w-full ">
-          <MyTeam />
+          {/* <MyTeam />
           <UpcomingHolidays />
           <AllocatedSeats />
           <MyProjects />
           <MySupportTickets />
-          <UpcomingBirthdays />
+          <UpcomingBirthdays /> */}
+          <Bonus/>
         </div>
       </div>
     </>
