@@ -1,4 +1,71 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
+.fc-prev-button.fc-button.fc-button-primary{
+    color: white;
+    font-size: 16px;
+    background-color: #5A8DEE;
+    border: none;
+  }
+  .fc-next-button.fc-button.fc-button-primary{
+    color: white;
+    font-size: 16px;
+    background-color: #5A8DEE;
+    border: none;
+  }
+  .fc-scrollgrid-sync-table{
+    color: #727E8C;
+  }
+  .fc-scrollgrid-section.fc-scrollgrid-section-header {
+    color: #475F7B;
+    font-size: .8rem;
+    font-weight: 400;
+    
+    padding-top: 4px;
+  
+  }
+  #fc-dom-86{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #475F7B;
+    line-height: 1.4;
+    letter-spacing: 0.05rem;
+  }
+  /* .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
+  width: 100%;
+  overflow-x: scroll;
+  } */
+  .fc-dayGridMonth-view.fc-view.fc-daygrid{
+    background-color: burlywood;
+  }
+  .fc-scrollgrid.fc-scrollgrid-liquid{
+    /* width: 300px; */
+    background-color: salmon;
+   overflow:hidden;
+  }
+  .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
+    /* width: 100%; */
+    /* overflow-x: scroll;
+    background-color: aquamarine; */
+  }
+  .rbc-btn-group{
+    color: white;
+    font-size: 16px;
+    background-color: #5A8DEE;
+    border: none;
+  }
+  .rbc-calendar{
+    background-color: #fff;
+    color: #475F7B;
+  }
+  .rbc-header{
+    color: #475F7B;
+    
+    font-weight: 400px;
+    letter-spacing: 1px;
+    
+  }
+  .calendar-style{
+   
+    min-width: 400px;
+  }

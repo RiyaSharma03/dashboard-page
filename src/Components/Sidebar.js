@@ -35,7 +35,7 @@ import logoants from "../Assests/logoants.svg";
 import { FaBars } from "react-icons/fa";
 import circle1 from "../Assests/circle1.png";
 import circle2 from "../Assests/circle2.png";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 function Sidebar() {
   const [isHovering, setIsHovering] = useState(false);
@@ -78,7 +78,7 @@ function Sidebar() {
     },
     { name: "Advance Payroll", link: "/", icon: payslipImg, gif: payslip },
     { name: "Salary", link: "/", icon: salaryImg, gif: salary },
-    { name: "Bonus", link: "/", icon: bonusImg, gif: bonus },
+    { name: "Bonus", link: "/bonus", icon: bonusImg, gif: bonus },
     { name: "IT Savings", link: "/", icon: hammerImg, gif: hammer },
     { name: "Timesheet", link: "/", icon: timeImg, gif: time },
     { name: "Policies", link: "/", icon: policyImg, gif: policy },
@@ -171,7 +171,7 @@ function Sidebar() {
           </div>
           <div className={`flex flex-col gap-2 relative py-4  text-[#8494A7] `}>
             {menus?.map((menu, i) => (
-              <div
+              <Link
                 to={menu?.link}
                 key={i}
                 className={` ${
@@ -219,7 +219,7 @@ function Sidebar() {
                     hhhh
                   </h2>
                 </a>
-              </div>
+              </Link>
             ))}
           </div>
           {/* </Scrollbars> */}
