@@ -1,6 +1,6 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import '../styles.css';
+import '../index.css';
 function MyProjects() {
   const projects = [
     {
@@ -35,9 +35,9 @@ function MyProjects() {
     },
   ];
   return (
-    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full">
-      <div className=" rounded-lg bg-[#fff] shadow-lg shadow-slate-500/50">
-        <div className=" p-4 leading-5 text-[#475f7b] font-normal my-custom-class tracking-wider capitalize">
+    <div className="card-outermost-div">
+      <div className=" card-div">
+        <div className="card-heading p-4">
           My Projects
         </div>
         <Scrollbars style={{ height: 435 }}>

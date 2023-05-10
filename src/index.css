@@ -20,9 +20,7 @@
     color: #475F7B;
     font-size: .8rem;
     font-weight: 400;
-    
     padding-top: 4px;
-  
   }
   #fc-dom-86{
     font-size: 1.2rem;
@@ -31,10 +29,6 @@
     line-height: 1.4;
     letter-spacing: 0.05rem;
   }
-  /* .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
-  width: 100%;
-  overflow-x: scroll;
-  } */
   .fc-dayGridMonth-view.fc-view.fc-daygrid{
     background-color: burlywood;
   }
@@ -42,11 +36,6 @@
     /* width: 300px; */
     background-color: salmon;
    overflow:hidden;
-  }
-  .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
-    /* width: 100%; */
-    /* overflow-x: scroll;
-    background-color: aquamarine; */
   }
   .rbc-btn-group{
     color: white;
@@ -66,6 +55,40 @@
     
   }
   .calendar-style{
-   
     min-width: 400px;
   }
+  .my-custom-class{
+    font-size: 1.2rem;
+}
+@layer components{
+.card-heading{
+  @apply  leading-5 my-custom-class text-[#475f7b] font-normal tracking-wider capitalize
+}
+.card-outermost-div{
+  @apply p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full
+}
+.card-div{
+  @apply bg-[#fff]  rounded-lg shadow-lg shadow-slate-500/50
+}
+.card:hover{
+  @apply bg-slate-100
+}
+.my-team-card{
+  @apply flex m-2 py-4 px-2 items-center card
+}
+.my-team-img{
+  @apply w-8 h-8 object-cover rounded-full mr-2
+}
+.component{
+  @apply flex  bg-[#f2f4f4] 
+}
+.main-component{
+  @apply flex flex-wrap h-screen overflow-scroll xl:w-full 
+}
+.bonus-screen-sizes{
+  @apply sidebarCard:overflow-x-scroll burger:overflow-x-scroll cardsm:overflow-x-scroll
+}
+.td-padding-bonus{
+  @apply p-6
+}
+}

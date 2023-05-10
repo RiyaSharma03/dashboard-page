@@ -1,13 +1,13 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import '../styles.css';
+import "../index.css";
 const MyComponent = (props) => {
   const { empName, empImage } = props;
   return (
     <div className="">
       {empName.map((element, i) => (
         <>
-          <div className="flex flex-row justify-between items-center p-2 w-full  hover:bg-slate-100">
+          <div className="flex flex-row justify-between items-center p-2 w-full  card">
             <div className="flex flex-row  items-center">
               <img
                 className="w-8 h-8 object-cover rounded-full mr-2"
@@ -60,9 +60,9 @@ const UpcomingBirthdays = () => {
   ];
 
   return (
-    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full  splitcard:w-full">
-      <div className="bg-[#fff] rounded-lg shadow-lg shadow-slate-500/50 p-4">
-        <div className=" leading-5 text-[#475f7b] font-normal my-custom-class tracking-wider capitalize ">
+    <div className="card-outermost-div">
+      <div className="card-div p-4">
+        <div className="card-heading">
           Upcoming Birthdays
         </div>
         <Scrollbars style={{ height: 435 }}>

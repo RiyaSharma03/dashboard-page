@@ -1,41 +1,41 @@
 import React, { useState } from "react";
-import dashboard from "../Assests/dashboard.gif";
-import dashboardPic from "../Assests/dashboardPic.png";
-import HR from "../Assests/HR.gif";
-import man from "../Assests/man.png";
-import check from "../Assests/check.gif";
-import checkImg from "../Assests/check.png";
-import ticketImg from "../Assests/ticket.png";
-import ticket from "../Assests/ticket.gif";
-import assets from "../Assests/assets.gif";
-import assetsImg from "../Assests/assets.png";
-import wifi from "../Assests/wifi.gif";
-import wifiImg from "../Assests/wifi.png";
-import shoppingcart from "../Assests/shoppingcart.gif";
-import shoppingcartImg from "../Assests/shoppingcart.png";
-import payslip from "../Assests/payslip.gif";
-import payslipImg from "../Assests/payslip.png";
-import salary from "../Assests/salary.gif";
-import salaryImg from "../Assests/salary.png";
-import bonus from "../Assests/bonus.gif";
-import bonusImg from "../Assests/bonus.png";
-import hammer from "../Assests/hammer.gif";
-import hammerImg from "../Assests/hammer.png";
-import time from "../Assests/time.gif";
-import timeImg from "../Assests/time.png";
-import smartphone from "../Assests/smartphone.gif";
-import smartphoneImg from "../Assests/smartphone.png";
-import skills from "../Assests/skills.gif";
-import skillsImg from "../Assests/skills.png";
-import cross from "../Assests/cross.gif";
-import crossImg from "../Assests/cross.png";
-import policy from "../Assests/policy.gif";
-import policyImg from "../Assests/policy.png";
-import logoants from "../Assests/logoants.svg";
+import dashboard from "../Assets/dashboard.gif";
+import dashboardPic from "../Assets/dashboardPic.png";
+import HR from "../Assets/HR.gif";
+import man from "../Assets/man.png";
+import check from "../Assets/check.gif";
+import checkImg from "../Assets/check.png";
+import ticketImg from "../Assets/ticket.png";
+import ticket from "../Assets/ticket.gif";
+import assets from "../Assets/assets.gif";
+import assetsImg from "../Assets/assets.png";
+import wifi from "../Assets/wifi.gif";
+import wifiImg from "../Assets/wifi.png";
+import shoppingcart from "../Assets/shoppingcart.gif";
+import shoppingcartImg from "../Assets/shoppingcart.png";
+import payslip from "../Assets/payslip.gif";
+import payslipImg from "../Assets/payslip.png";
+import salary from "../Assets/salary.gif";
+import salaryImg from "../Assets/salary.png";
+import bonus from "../Assets/bonus.gif";
+import bonusImg from "../Assets/bonus.png";
+import hammer from "../Assets/hammer.gif";
+import hammerImg from "../Assets/hammer.png";
+import time from "../Assets/time.gif";
+import timeImg from "../Assets/time.png";
+import smartphone from "../Assets/smartphone.gif";
+import smartphoneImg from "../Assets/smartphone.png";
+import skills from "../Assets/skills.gif";
+import skillsImg from "../Assets/skills.png";
+import cross from "../Assets/cross.gif";
+import crossImg from "../Assets/cross.png";
+import policy from "../Assets/policy.gif";
+import policyImg from "../Assets/policy.png";
+import logoants from "../Assets/logoants.svg";
 import { FaBars } from "react-icons/fa";
-import circle1 from "../Assests/circle1.png";
-import circle2 from "../Assests/circle2.png";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import circle1 from "../Assets/circle1.png";
+import circle2 from "../Assets/circle2.png";
+import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 function Sidebar() {
   const [isHovering, setIsHovering] = useState(false);
@@ -45,9 +45,7 @@ function Sidebar() {
   const [onHover, setOnHover] = useState(false);
   const [selectedItem, setSelectedItem] = useState(-1);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  console.log("open is ",open)
   const handleToggleCollapse = () => {
-    console.log(isCollapsed," is collapsed ",open," open")
     setIsCollapsed(!isCollapsed);
     setOpen(true);
   };
@@ -150,8 +148,6 @@ function Sidebar() {
               {open ? <AiOutlineClose /> : ""}
             </button>
           </div>
-
-          {/* <Scrollbars style={{ height: 750 }} > */}
           <div className="flex flex-col items-center burger:items-center burger:w-screen ">
             <img
               className="w-12 h-12 object-cover rounded-full m-2"
@@ -216,17 +212,13 @@ function Sidebar() {
                       open && "hidden"
                     } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
                   >
-                    hhhh
+                    
                   </h2>
                 </a>
               </Link>
             ))}
           </div>
-          {/* </Scrollbars> */}
         </div>
-        {/* <div className="m-3 text-xl text-gray-900 font-semibold">
-      REACT TAILWIND
-    </div> */}
       </div>
     </>
   );

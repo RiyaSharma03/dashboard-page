@@ -1,6 +1,6 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import '../styles.css';
+import "../index.css";
 const UpcomingHolidays = () => {
   const nameValuePairs = [
     {
@@ -85,10 +85,10 @@ const UpcomingHolidays = () => {
     },
   ];
   return (
-    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full">
-      <div className="bg-[#fff] rounded-lg p-4 shadow-lg shadow-slate-500/50">
+    <div className="card-outermost-div">
+      <div className="card-div p-4">
         <div className="  flex flex-row  justify-between items-center ">
-          <div className=" leading-5 text-[#475f7b] font-normal my-custom-class tracking-wider capitalize">
+          <div className="card-heading">
             Upcoming Holidays
           </div>
           <a
@@ -99,11 +99,11 @@ const UpcomingHolidays = () => {
             <text>View All</text>
           </a>
         </div>
-        <Scrollbars style={{ height: 435, color: "skyblue" }}>
+        <Scrollbars style={{ height: 435, color: "skyblue" }} >
           {/* <div className="overflow-y-scroll max-h-96 scrollbar-thumb-gray-300 scrollbar-track-red-100"> */}
           {nameValuePairs.map((item) => (
             <>
-              <div className="flex flex-row items-center  justify-between my-4  text-[#727E8C]">
+              <div className="flex flex-row items-center  justify-between my-4  text-[#727E8C] mr-3">
                 <text>{item.date}</text>
                 <div className="flex flex-col text-right  items-end ">
                   {item.optionalOrNot ? (

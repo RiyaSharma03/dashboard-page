@@ -1,28 +1,29 @@
 import React from "react";
-import MyTeam from "./MyTeam";
-import UpcomingHolidays from "./UpcomingHolidays";
-import AllocatedSeats from "./AllocatedSeats";
-import MyProjects from "./MyProjects";
-import MySupportTickets from "./MySupportTickets";
-import UpcomingBirthdays from "./UpcomingBirthdays";
-import Sidebar from "./Sidebar";
+import {
+  MyTeam,
+  UpcomingBirthdays,
+  UpcomingHolidays,
+  MyProjects,
+  MySupportTickets,
+  AllocatedSeats,
+  Sidebar,
+} from "./index";
 function Dashboard() {
   return (
     <>
-      <div className=" flex flex-row  bg-[#f2f4f4] ">
+      <div className=" component ">
         <div className=" burger:block ">
           <Sidebar />
         </div>
-        <div className="flex flex-wrap h-screen overflow-scroll xl:w-full ">
-        <MyTeam />
-      <UpcomingHolidays />
-      <AllocatedSeats />
-      <MyProjects />
-      <MySupportTickets />
-      <UpcomingBirthdays />
+        <div className="main-component">
+          <MyTeam />
+          <UpcomingHolidays />
+          <AllocatedSeats />
+          <MyProjects />
+          <MySupportTickets />
+          <UpcomingBirthdays />
         </div>
       </div>
-     
     </>
   );
 }

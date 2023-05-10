@@ -1,6 +1,6 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import '../styles.css';
+import "../index.css";
 const MySupportTickets = () => {
   const nameValuePairs = [
     {
@@ -15,41 +15,44 @@ const MySupportTickets = () => {
     },
   ];
   return (
-    <div className="p-4 w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full">
-      <div className=" bg-[#fff]  rounded-lg shadow-lg shadow-slate-500/50 ">
-        <div className=" leading-5 text-[#475f7b] font-normal my-custom-class tracking-wider capitalize p-4">
-          My Support Tickets
+    <>
+     
+      <div className="card-outermost-div">
+        <div className=" card-div ">
+          <div className=" card-heading p-4">
+            My Support Tickets
+          </div>
+          <Scrollbars style={{ height: 435 }}>
+            {nameValuePairs.map((item) => (
+              <>
+                <a
+                  target="blank"
+                  href="https://my.geekyants.com/support-ticket"
+                  classname="flex items-center justify-between"
+                >
+                  <div className="flex  p-4 card justify-between ">
+                    <div className="h-30 w-30 w-1/2 ">
+                      <div className="text-[#40566F]">{item.name}</div>
+                      <small className="text-[#828D99]">{item.date}</small>
+                    </div>
+                    <div className=" flex items-center justify-center  ">
+                      {item.verifiedOrNot ? (
+                        <span className="rounded bg-[#d2ffe8] text-[#39da8a] p-1 px-3 text-xs">
+                          VERIFIED & CLOSED
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                </a>
+                <hr />
+              </>
+            ))}
+          </Scrollbars>
         </div>
-        <Scrollbars style={{ height: 435 }}>
-          {nameValuePairs.map((item) => (
-            <>
-              <a
-                target="blank"
-                href="https://my.geekyants.com/support-ticket"
-                classname="flex align-center justify-between"
-              >
-                <div className="flex flex-row  p-4 align-center   hover:bg-slate-100 justify-between ">
-                  <div className="h-30 w-30 ">
-                    <div className="text-[#40566F]">{item.name}</div>
-                    <small className="text-[#828D99]">{item.date}</small>
-                  </div>
-                  <div className="w-3/4 flex align-center justify-center m-auto">
-                    {item.verifiedOrNot ? (
-                      <span className="rounded bg-[#d2ffe8] text-[#39da8a] text-sm">
-                        VERIFIED & CLOSED
-                      </span>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </div>
-              </a>
-              <hr />
-            </>
-          ))}
-        </Scrollbars>
       </div>
-    </div>
+    </>
   );
 };
 

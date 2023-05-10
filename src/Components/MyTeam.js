@@ -1,20 +1,20 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import '../styles.css';
+import '../index.css';
 const MyTeam = () => {
   
   return (
-    <div className="p-4  w-1/3 rounded-lg cardmd:w-1/2 cardsm:w-full splitcard:w-full">
-      <div className=" rounded-lg bg-[#fff] shadow-lg shadow-slate-500/50 ">
-        <div className=" p-4 leading-5 my-custom-class text-[#475f7b] font-normal  tracking-wider capitalize">
+    <div className="card-outermost-div">
+      <div className=" card-div ">
+        <div className="card-heading p-4">
           My Team
         </div>
         <Scrollbars style={{ height: 400 }}>
           <div className="mx-4">
             <div className=" px-2 text-[#BAC0C7]">My Reporting Manager</div>
-            <div className="flex flex-row m-2 py-4 px-2 items-center hover:bg-slate-100">
+            <div className="my-team-card ">
               <img
-                className="w-8 h-8 object-cover rounded-full mr-2"
+                className=" my-team-img"
                 src="https://website-admin.geekyants.com/user-image/raghavendra.png"
                 alt="No img available"
               />
@@ -25,10 +25,10 @@ const MyTeam = () => {
             </div>
             <hr />
 
-            <div className="m-2 px-2 text-[#BAC0C7]">My HR Buddy</div>
-            <div className="flex flex-row  items-center px-2 py-4 m-2 hover:bg-slate-100">
+            <div className=" mt-2 px-2 text-[#BAC0C7]">My HR Buddy</div>
+            <div className="my-team-card ">
               <img
-                className="w-8 h-8 object-cover rounded-full mr-2"
+                className=" my-team-img"
                 src="https://website-admin.geekyants.com/user-image/shrutim.png"
               />
               <text className="flex flex-col">
@@ -39,10 +39,10 @@ const MyTeam = () => {
             </div>
           </div>
         </Scrollbars>
-        <div className=" h-10 bg-[#5A8DEE] flex  items-center justify-center rounded rounded-t-none">
+        <div className=" h-10 bg-[#5A8DEE] flex items-center justify-center rounded rounded-t-none">
           <a
             type="button"
-            className="block  rounded text-[#FFFFFF]"
+            className="block rounded text-[#FFFFFF]"
             href="https://timesheet.geekyants.com/log-timesheet"
             target="_blank"
           >
