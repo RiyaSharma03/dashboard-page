@@ -7,3 +7,4 @@ export { default as MyProjects} from './MyProjects';
 export {default as Sidebar} from './Sidebar';
 export {default as Dashboard} from './Dashboard';
 export {default as Bonus} from './Bonus';
+export {default as Login} from './Login';

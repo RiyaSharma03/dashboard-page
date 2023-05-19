@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import dashboard from "../Assets/dashboard.gif";
 import dashboardPic from "../Assets/dashboardPic.png";
 import HR from "../Assets/HR.gif";
@@ -37,7 +39,9 @@ import circle1 from "../Assets/circle1.png";
 import circle2 from "../Assets/circle2.png";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
+import { info } from "autoprefixer";
 function Sidebar() {
+  const navigate=useNavigate();
   const [isHovering, setIsHovering] = useState(false);
   const handleHover = () => setIsHovering(true);
   const handleLeave = () => setIsHovering(false);
@@ -61,6 +65,24 @@ function Sidebar() {
       setOnHover(false);
     }
   };
+  function logout() {
+    const token = localStorage.getItem('user-info');
+    axios
+      .get("http://my-geekyants-dashboard.test/api/logout",{
+        headers: {
+          'Authorization': `Bearer ${JSON.parse(token).token}`
+        }})
+      .then((response) => {
+        console.log(response);
+        localStorage.removeItem("user-info"); // remove user info from local storage
+        navigate("/login"); // redirect to login page
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // localStorage.clear()
+    // navigate('/');
+  }
   const menus = [
     { name: "Dashboard", link: "/", icon: dashboardPic, gif: dashboard },
     { name: "HR Buddy", link: "/", icon: man, gif: HR },
@@ -84,7 +106,7 @@ function Sidebar() {
     { name: "My Profile", link: "/", icon: man, gif: HR },
     { name: "My Contacts", link: "/", icon: smartphoneImg, gif: smartphone },
     { name: "My Skills", link: "/", icon: skillsImg, gif: skills },
-    { name: "Log Out", link: "/", icon: crossImg, gif: cross },
+    { name: "Log Out", link: "/login", icon: crossImg, gif: cross ,action:logout},
   ];
   return (
     <>
@@ -173,6 +195,7 @@ function Sidebar() {
                 className={` ${
                   menu?.margin && "mt-5"
                 } group flex items-center  justify-center content-center text-sm font-medium   rounded-md `}
+                onClick={menu.action }
               >
                 <a
                   href="#"
@@ -186,7 +209,7 @@ function Sidebar() {
                   }}
                   className="p-2  flex flex-row  items-center w-full "
                 >
-                  <div className=" text-[#8494A7] mr-2">
+                  <div className=" text-[#8494A7] mr-2" >
                     {isHovering && selectedItem === i ? (
                       <img src={menu.gif} className="w-6 h-6 " />
                     ) : (

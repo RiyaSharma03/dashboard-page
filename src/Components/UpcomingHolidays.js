@@ -1,7 +1,27 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Scrollbars } from "react-custom-scrollbars";
+import axios from "axios";
+import moment from "moment";
+import { format } from 'date-fns';
 import "../index.css";
+function GetDayFromDate(props) {
+  const { date } = props;
+  const dateString = new Date(date);
+  const day = format(dateString, 'EEE');
+  return day;
+}
 const UpcomingHolidays = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get('http://my-geekyants-dashboard.test/api/holidays')
+      .then(response => {
+        // console.log(response.data);
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
   const nameValuePairs = [
     {
       name: `Buddha Purnima`,
@@ -101,12 +121,15 @@ const UpcomingHolidays = () => {
         </div>
         <Scrollbars style={{ height: 435, color: "skyblue" }} >
           {/* <div className="overflow-y-scroll max-h-96 scrollbar-thumb-gray-300 scrollbar-track-red-100"> */}
-          {nameValuePairs.map((item) => (
+          {data.map((item) => (
             <>
               <div className="flex flex-row items-center  justify-between my-4  text-[#727E8C] mr-3">
-                <text>{item.date}</text>
+                <div className="flex  ">
+                <GetDayFromDate date={item.date} />
+                ,{ moment(item.date).format('Do MMMM YYYY')}
+                </div>
                 <div className="flex flex-col text-right  items-end ">
-                  {item.optionalOrNot ? (
+                  {item.is_optional ? (
                     <span className="bg-[#ffeed9] text-[#fdac41] text-center items-right rounded px-2 py-0.5 w-24 text-sm ">
                       OPTIONAL
                     </span>
