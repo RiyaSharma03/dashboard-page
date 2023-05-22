@@ -40,8 +40,10 @@ import circle2 from "../Assets/circle2.png";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { info } from "autoprefixer";
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
 function Sidebar() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [isHovering, setIsHovering] = useState(false);
   const handleHover = () => setIsHovering(true);
   const handleLeave = () => setIsHovering(false);
@@ -65,24 +67,44 @@ function Sidebar() {
       setOnHover(false);
     }
   };
+  // function logout() {
+  //   const authToken = Cookies.get("auth_token");
+  //   axios
+  //     .get("http://my-geekyants-dashboard.test/api/logout",{
+  //       headers: {
+  //         'Authorization': `Bearer ${authToken}`
+  //       }})
+  //     .then((response) => {
+  //       console.log(response);
+  //       Cookies.remove("auth_token");
+  //       navigate("/login"); // redirect to login page
+
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+
+  // }
   function logout() {
-    const token = localStorage.getItem('user-info');
+    const authToken = Cookies.get("authentication_token");
     axios
-      .get("http://my-geekyants-dashboard.test/api/logout",{
+      .get("http://my-geekyants-dashboard.test/api/logout", {
         headers: {
-          'Authorization': `Bearer ${JSON.parse(token).token}`
-        }})
+         " Authorization": `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+      })
       .then((response) => {
-        console.log(response);
-        localStorage.removeItem("user-info"); // remove user info from local storage
-        navigate("/login"); // redirect to login page
+        document.cookie = "auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "authentication_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      navigate("/login"); // redirect to login page
       })
       .catch((error) => {
         console.log(error);
       });
-    // localStorage.clear()
-    // navigate('/');
   }
+
   const menus = [
     { name: "Dashboard", link: "/", icon: dashboardPic, gif: dashboard },
     { name: "HR Buddy", link: "/", icon: man, gif: HR },
@@ -106,7 +128,13 @@ function Sidebar() {
     { name: "My Profile", link: "/", icon: man, gif: HR },
     { name: "My Contacts", link: "/", icon: smartphoneImg, gif: smartphone },
     { name: "My Skills", link: "/", icon: skillsImg, gif: skills },
-    { name: "Log Out", link: "/login", icon: crossImg, gif: cross ,action:logout},
+    {
+      name: "Log Out",
+      link: "/login",
+      icon: crossImg,
+      gif: cross,
+      action: logout,
+    },
   ];
   return (
     <>
@@ -195,7 +223,7 @@ function Sidebar() {
                 className={` ${
                   menu?.margin && "mt-5"
                 } group flex items-center  justify-center content-center text-sm font-medium   rounded-md `}
-                onClick={menu.action }
+                onClick={menu.action}
               >
                 <a
                   href="#"
@@ -209,7 +237,7 @@ function Sidebar() {
                   }}
                   className="p-2  flex flex-row  items-center w-full "
                 >
-                  <div className=" text-[#8494A7] mr-2" >
+                  <div className=" text-[#8494A7] mr-2">
                     {isHovering && selectedItem === i ? (
                       <img src={menu.gif} className="w-6 h-6 " />
                     ) : (
@@ -234,9 +262,7 @@ function Sidebar() {
                     className={`${
                       open && "hidden"
                     } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
-                  >
-                    
-                  </h2>
+                  ></h2>
                 </a>
               </Link>
             ))}

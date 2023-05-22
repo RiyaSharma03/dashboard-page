@@ -5,6 +5,10 @@ import { GrFormNext } from "react-icons/gr";
 import { Sidebar, Login } from "./index";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
+import { useUser } from './UserContext';
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 const localizer = momentLocalizer(moment);
 
@@ -41,14 +45,20 @@ function MyToolbar(props) {
 }
 
 const Bonus = () => {
-  
+  // const { userId } = useUser();
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
-  let userId
-  if(localStorage.getItem("user-info")) {
-     userId = JSON.parse(localStorage.getItem('user-info')).user.id;
+  let userId = null;
+  const authToken = Cookies.get("auth_token");
+  if (authToken) {
+    const decodedToken = jwt_decode(authToken,'c7711fd3469672d2cc5000a6a875db274411e9a6e522c52a3634a83fb8291db9')
+    userId = decodedToken.user_id; // Assuming the user ID is stored in the 'sub' claim of the JWT
   }
   
   useEffect(() => {
+    if(!Cookies.get("auth_token")){
+      navigate('/');
+    }
     const headers = {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -65,7 +75,7 @@ const Bonus = () => {
   }, []);
   return (
     <>
-      {localStorage.getItem("user-info") ? (
+      {Cookies.get("auth_token") ? (
         <div className=" component">
           <div className=" burger:block ">
             <Sidebar />
@@ -140,7 +150,7 @@ const Bonus = () => {
           </div>
         </div>
       ) : (
-        <Login />
+        <navigate to="/login"/>
       )}
     </>
   );

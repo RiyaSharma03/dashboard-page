@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {
   MyTeam,
   UpcomingBirthdays,
@@ -9,11 +9,23 @@ import {
   Sidebar,
   Login
 } from "./index";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
+
 
 function Dashboard() {
+  const navigate = useNavigate();
+  const authToken=Cookies.get("auth_token");
+  useEffect(() => {
+    if(!Cookies.get("auth_token")){
+      navigate('/');
+    }
+  }, [])
+  
   return (
     <>
-      {localStorage.getItem("user-info") ? (
+      {authToken ? (
         <div className=" component ">
           <div className=" burger:block ">
             <Sidebar />
@@ -27,7 +39,7 @@ function Dashboard() {
             <UpcomingBirthdays />
           </div>
         </div>
-      ) : <Login/>}
+      ) : <Login/>} 
     </>
   );
 }

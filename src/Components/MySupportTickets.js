@@ -3,10 +3,17 @@ import { Scrollbars } from "react-custom-scrollbars";
 import axios from "axios";
 import moment from 'moment'
 import "../index.css";
-
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
 const MySupportTickets = () => {
   const [data, setData] = useState([]);
-  const userId = JSON.parse(localStorage.getItem('user-info')).user.id;
+  // const userId = JSON.parse(localStorage.getItem('user-info')).user.id;
+  let userId = null;
+  const authToken = Cookies.get("auth_token");
+  if (authToken) {
+    const decodedToken = jwt_decode(authToken,'c7711fd3469672d2cc5000a6a875db274411e9a6e522c52a3634a83fb8291db9')
+    userId = decodedToken.user_id; // Assuming the user ID is stored in the 'sub' claim of the JWT
+  }
   useEffect(() => {
     axios.get(`http://my-geekyants-dashboard.test/api/supportticket/${userId}`)
       .then(response => {

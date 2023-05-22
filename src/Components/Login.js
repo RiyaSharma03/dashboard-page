@@ -4,11 +4,14 @@ import getCsrfToken from "./csrf";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import Cookies from "js-cookie";
+
 function Login() {
   const csrfToken = getCsrfToken();
   const navigate = useNavigate();
+  const [isState,setIsState]=useState()
   useEffect(() => {
-    if (localStorage.getItem("user-info")) {
+    if (Cookies.get("auth_token")) {
       navigate("/");
     }
   }, []);
@@ -30,9 +33,10 @@ function Login() {
       }
     );
     result = await result.json();
-    // console.log(result.success);
+
     if (result.success) {
-      localStorage.setItem("user-info", JSON.stringify(result));
+      Cookies.set("auth_token", result.token); // Set the authentication token as a cookie 
+      Cookies.set("authentication_token", result.authentication_token);
       navigate("/");
     } else {
       alert("Wrong Credentials");
@@ -41,8 +45,6 @@ function Login() {
   }
   async function handleGoogleLogin(credentialResponse) {
     const details = jwt_decode(credentialResponse.credential);
-   
-console.log(details);
     // Perform the POST request here
     let items = { email: details.email, password: "" }; // Use the email from Google login response
 
@@ -53,16 +55,17 @@ console.log(details);
         headers: {
           "X-CSRF-TOKEN": csrfToken,
           "Content-Type": "application/json",
-          "Accept": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(items),
       }
     );
-    
+
     result = await result.json();
     console.log(result);
     if (result.success) {
-        localStorage.setItem("user-info", JSON.stringify(credentialResponse));
+      // localStorage.setItem("user-info", JSON.stringify(credentialResponse));
+      Cookies.set("auth_token", result.token);
       navigate("/");
     } else {
       alert("Google login failed");
@@ -114,20 +117,20 @@ console.log(details);
             </div>
           </form>
           <div className="flex justify-center w-full">
-          <GoogleLogin
-            // onSuccess={(credentialResponse) => {
-            //   const details = jwt_decode(credentialResponse.credential);
-            //   localStorage.setItem(
-            //     "user-info",
-            //     JSON.stringify(credentialResponse)
-            //   );
-            //   navigate("/");
-            // }}
-            onSuccess={handleGoogleLogin}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
+            <GoogleLogin
+              // onSuccess={(credentialResponse) => {
+              //   const details = jwt_decode(credentialResponse.credential);
+              //   localStorage.setItem(
+              //     "user-info",
+              //     JSON.stringify(credentialResponse)
+              //   );
+              //   navigate("/");
+              // }}
+              onSuccess={handleGoogleLogin}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
           </div>
         </div>
       </div>
